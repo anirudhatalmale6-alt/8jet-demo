@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="fr"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8JET — transfert aéroport de prestige et transport sécurisé</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --n:#0b1017; --n2:#121a25; --l:#243040; --tx:#dfe6ee; --mu:#9fb0c2;
+  --ac:#c8a862; --acd:#b08f45;
+}
+html,body{margin:0;padding:0}
+body{background:var(--n);color:var(--tx);
+  font:16px/1.6 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+  "Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--ac);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1240px;margin:0 auto;padding:0 22px}
+h1,h2,h3{line-height:1.14;letter-spacing:-.024em;margin:0 0 14px;font-weight:800;color:#fff}
+
+.demo{background:#000;color:#e8eef4;font-size:12.5px;padding:8px 16px;text-align:center}
+.demo b{color:var(--ac)}
+
+header.top{border-bottom:1px solid var(--l);position:sticky;top:0;z-index:30;
+  background:rgba(11,16,23,.92);backdrop-filter:blur(8px)}
+.tbar{display:flex;align-items:center;gap:22px;padding:14px 0}
+.logo{font-weight:800;font-size:21px;letter-spacing:-.03em;color:#fff}
+.logo span{color:var(--ac)}
+.tnav{margin-left:auto;display:flex;gap:20px;font-size:14.5px}
+.tnav a{color:var(--mu)} .tnav a:hover{color:var(--ac);text-decoration:none}
+
+/* --- heros --- */
+.hero{padding:74px 0 60px;border-bottom:1px solid var(--l);
+  background:radial-gradient(820px 420px at 80% 12%,rgba(200,168,98,.11),transparent 60%)}
+.kick{color:var(--ac);font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;margin:0 0 20px}
+.hero h1{font-size:clamp(34px,5.2vw,60px);max-width:19ch;margin-bottom:20px}
+.lede{font-size:17.5px;color:var(--mu);max-width:60ch;margin:0 0 28px}
+.mes{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--l);
+  border:1px solid var(--l);margin-top:40px}
+.mes>div{background:var(--n);padding:22px 20px}
+.mes b{display:block;font-size:30px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.mes span{font-size:13px;color:var(--mu)}
+
+/* --- LE LIVRE : index a gauche, page a droite --- */
+.book{display:grid;grid-template-columns:340px 1fr;gap:0;border-bottom:1px solid var(--l)}
+.idx{border-right:1px solid var(--l);padding:26px 0 40px;
+  position:sticky;top:60px;align-self:start;max-height:calc(100vh - 60px);overflow-y:auto}
+.idx h3{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--mu);
+  padding:0 22px;margin-bottom:12px}
+.rech{margin:0 22px 14px;display:flex;border:1px solid var(--l);background:var(--n2)}
+.rech input{flex:1;background:none;border:0;outline:0;color:var(--tx);font:inherit;
+  font-size:14px;padding:10px 12px;min-width:0}
+.reg{padding:0 22px;margin:16px 0 6px;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ac);font-weight:700}
+.apt{display:flex;align-items:baseline;gap:10px;width:100%;text-align:left;border:0;
+  background:none;color:var(--tx);font:inherit;font-size:14px;padding:7px 22px;cursor:pointer}
+.apt:hover{background:var(--n2);color:var(--ac)}
+.apt.on{background:var(--n2);color:var(--ac);box-shadow:inset 3px 0 0 var(--ac);font-weight:700}
+.apt code{font:700 12px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color:var(--mu);width:34px;flex:0 0 34px}
+.apt.on code{color:var(--ac)}
+.apt em{margin-left:auto;font-style:normal;font-size:12px;color:var(--mu)}
+.vide{padding:20px 22px;color:var(--mu);font-size:13.5px}
+
+.pane{padding:30px 30px 60px;min-width:0}
+.folio{display:flex;align-items:baseline;gap:14px;color:var(--mu);font-size:12.5px;
+  letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+.folio b{color:var(--ac);font-weight:700}
+.pane h2{font-size:clamp(25px,3.4vw,38px);margin-bottom:6px}
+.sous{color:var(--mu);font-size:15.5px;margin:0 0 24px}
+.faits{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;background:var(--l);border:1px solid var(--l);margin-bottom:28px}
+.faits>div{background:var(--n2);padding:15px 16px}
+.faits b{display:block;font-size:19px;color:#fff;font-weight:800}
+.faits span{font-size:12px;color:var(--mu)}
+
+/* --- le configurateur : c'est la que la page devient vivante --- */
+.cfg{border:1px solid var(--l);background:var(--n2);padding:22px;margin-bottom:26px}
+.cfg h3{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--mu);
+  margin-bottom:16px;font-weight:700}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:9px;margin-bottom:18px}
+.opt{border:1px solid var(--l);background:var(--n);padding:12px 14px;cursor:pointer;
+  display:flex;flex-direction:column;gap:3px;text-align:left;color:var(--tx);font:inherit}
+.opt:hover{border-color:var(--ac)}
+.opt.on{border-color:var(--ac);background:rgba(200,168,98,.09)}
+.opt b{font-size:14px;color:#fff}
+.opt span{font-size:12px;color:var(--mu)}
+.opt.on b{color:var(--ac)}
+.devis{border-top:1px solid var(--l);padding-top:16px;display:flex;flex-wrap:wrap;
+  align-items:baseline;gap:12px}
+.devis .p{font-size:34px;font-weight:800;color:#fff;letter-spacing:-.03em}
+.devis .d{font-size:13px;color:var(--mu)}
+.devis .cta{margin-left:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 24px;
+  font:700 14.5px/1.2 inherit;border:1.5px solid var(--ac);background:var(--ac);
+  color:#10161f;cursor:pointer;text-decoration:none}
+.btn:hover{background:var(--acd);border-color:var(--acd);text-decoration:none;color:#10161f}
+.btn-g{background:transparent;color:#fff}
+.btn-g:hover{background:transparent;color:var(--ac)}
+
+.detail{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px}
+.detail h4{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--mu);margin:0 0 10px;font-weight:700}
+.detail ul{list-style:none;margin:0;padding:0;font-size:14px;color:var(--mu)}
+.detail li{padding:6px 0;border-bottom:1px solid var(--l)}
+.detail li b{color:var(--tx);font-weight:600}
+
+/* --- flotte --- */
+section.sec{padding:66px 0;border-bottom:1px solid var(--l)}
+section.sec h2{font-size:clamp(24px,3vw,34px);max-width:24ch}
+.sub{color:var(--mu);max-width:62ch;margin:-4px 0 30px;font-size:16px}
+.flotte{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1px;background:var(--l);border:1px solid var(--l)}
+.veh{background:var(--n2);padding:24px 22px;display:flex;flex-direction:column;gap:8px}
+.veh .t{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ac);font-weight:700}
+.veh b{font-size:18px;color:#fff}
+.veh p{margin:0;font-size:14px;color:var(--mu);line-height:1.6}
+.cap{display:flex;gap:18px;margin-top:auto;padding-top:12px;border-top:1px solid var(--l);
+  font-size:13px;color:var(--mu)}
+.cap b{color:#fff;font-size:15px}
+
+/* --- securite --- */
+.niv{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px}
+.niv>div{border-top:2px solid var(--ac);padding-top:16px}
+.niv h3{font-size:17px;margin-bottom:8px}
+.niv p{color:var(--mu);font-size:14.5px;margin:0 0 12px}
+.niv ul{list-style:none;margin:0;padding:0;font-size:13.5px;color:var(--mu)}
+.niv li{padding:5px 0 5px 16px;position:relative}
+.niv li::before{content:"";position:absolute;left:0;top:13px;width:6px;height:1px;background:var(--ac)}
+.avert{border-left:3px solid var(--ac);background:rgba(200,168,98,.07);
+  padding:16px 20px;margin-top:34px;font-size:14.5px;color:var(--tx);max-width:86ch}
+
+/* --- etapes --- */
+.etapes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:1px;background:var(--l);border:1px solid var(--l)}
+.etapes>div{background:var(--n2);padding:24px 22px}
+.etapes .n{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--ac)}
+.etapes b{display:block;font-size:16.5px;color:#fff;margin:8px 0 7px}
+.etapes p{margin:0;font-size:14px;color:var(--mu);line-height:1.6}
+
+footer{padding:40px 0 60px;color:var(--mu);font-size:13.5px}
+
+@media (max-width:1000px){
+  .book{grid-template-columns:1fr}
+  .idx{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--l)}
+  .idx .liste{max-height:320px;overflow-y:auto}
+  .pane{padding:26px 0 46px}
+  .mes{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .mes{grid-template-columns:1fr}
+  .devis .cta{margin-left:0;width:100%}
+  .btn{width:100%}
+}
+</style>
+</head><body>
+
+<div class="demo">Maquette — les <b>96 aéroports</b>, leurs codes IATA, villes et
+pays sont réels. Les distances, temps de trajet et <b>tarifs sont indicatifs</b> et
+seront remplacés par votre grille. <b>8JET</b> est un nom provisoire.</div>
+
+<header class="top"><div class="wrap tbar">
+  <div class="logo">8<span>JET</span></div>
+  <nav class="tnav">
+    <a href="#livre">Les 96 aéroports</a>
+    <a href="#flotte">La flotte</a>
+    <a href="#securite">Sécurité</a>
+    <a href="#deroulement">Déroulement</a>
+  </nav>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <p class="kick">Transfert aéroport · Chauffeur privé · Protection rapprochée</p>
+  <h1>Un chauffeur qui vous attend, dans 96 aéroports.</h1>
+  <p class="lede">Une flotte Mercedes exclusivement, un chauffeur qui suit votre vol,
+  et — si la destination l'exige — une équipe de protection étudiée avant le départ.
+  Choisissez votre aéroport ci-dessous : la page se reconfigure.</p>
+  <a class="btn" href="#livre">Ouvrir le livre des aéroports</a>
+  <div class="mes">
+    <div><b>96</b><span>aéroports desservis</span></div>
+    <div><b>50</b><span>pays</span></div>
+    <div><b>6</b><span>modèles Mercedes</span></div>
+    <div><b>3</b><span>niveaux de protection</span></div>
+  </div>
+</div></div>
+
+<div id="livre" class="book">
+  <aside class="idx">
+    <h3>Le livre des aéroports</h3>
+    <div class="rech"><input id="q" type="search" placeholder="Ville, pays ou code IATA…"
+         aria-label="Rechercher un aéroport"></div>
+    <div class="reg" id="compte"></div>
+    <div class="liste" id="liste"></div>
+  </aside>
+  <main class="pane">
+    <div class="folio" id="folio"></div>
+    <h2 id="titre"></h2>
+    <p class="sous" id="sous"></p>
+    <div class="faits" id="faits"></div>
+
+    <div class="cfg">
+      <h3>Votre véhicule</h3>
+      <div class="opts" id="vehs"></div>
+      <h3>Option sécurité</h3>
+      <div class="opts" id="secus"></div>
+      <div class="devis">
+        <span class="p" id="prix"></span>
+        <span class="d" id="det"></span>
+        <a class="btn cta" href="#">Demander cette mission</a>
+      </div>
+    </div>
+
+    <div class="detail">
+      <div><h4>Ce que comprend la formule</h4><ul id="inclus"></ul></div>
+      <div><h4>Pratique</h4><ul id="pratique"></ul></div>
+    </div>
+  </main>
+</div>
+
+<section class="sec" id="flotte"><div class="wrap">
+  <h2>Mercedes, et rien d'autre.</h2>
+  <p class="sub">Six modèles couvrent tout ce qu'un transfert demande, du trajet
+  d'affaires seul à l'équipage complet. Une seule marque, donc un seul standard
+  d'entretien, de propreté et de finition — c'est ce qui rend le service
+  prévisible d'une ville à l'autre.</p>
+  <div class="flotte"><div class="veh"><span class="t">Berline</span><b>Mercedes-Benz Classe E</b><p>La berline de reference du transfert d’affaires. Discrete, silencieuse, suffisante pour deux passagers et leurs bagages cabine.</p><div class="cap"><span><b>3</b> passagers</span><span><b>3</b> bagages</span></div></div>
+<div class="veh"><span class="t">Berline de représentation</span><b>Mercedes-Benz Classe S</b><p>Empattement long, sièges arrière inclinables, isolation phonique renforcée. C’est la voiture qu’on prend quand le trajet doit être un bureau.</p><div class="cap"><span><b>3</b> passagers</span><span><b>3</b> bagages</span></div></div>
+<div class="veh"><span class="t">Berline électrique</span><b>Mercedes-Benz EQS</b><p>Équivalent Classe S en électrique. Demandée par les entreprises qui rapportent leurs émissions, et par les villes à zone à faibles émissions.</p><div class="cap"><span><b>3</b> passagers</span><span><b>3</b> bagages</span></div></div>
+<div class="veh"><span class="t">Van</span><b>Mercedes-Benz Classe V</b><p>Six places assises face à la route et de vrais volumes de coffre. Le choix par défaut dès qu’il y a une famille ou une délégation.</p><div class="cap"><span><b>6</b> passagers</span><span><b>6</b> bagages</span></div></div>
+<div class="veh"><span class="t">Van grand volume</span><b>Mercedes-Benz Sprinter</b><p>Équipages, tournées, groupes. C’est le seul véhicule de la liste qui absorbe un excédent de bagages sans second véhicule.</p><div class="cap"><span><b>12</b> passagers</span><span><b>14</b> bagages</span></div></div>
+<div class="veh"><span class="t">SUV</span><b>Mercedes-Benz Classe G</b><p>Demandé sur les destinations de montagne et sur les missions protégées, où la garde au sol et la traction comptent plus que le confort arrière.</p><div class="cap"><span><b>4</b> passagers</span><span><b>3</b> bagages</span></div></div></div>
+</div></section>
+
+<section class="sec" id="securite"><div class="wrap">
+  <h2>L'option sécurité, en trois niveaux.</h2>
+  <p class="sub">La plupart des trajets n'en ont pas besoin. Ceux qui en ont besoin
+  ne se traitent pas au moment de la réservation : ils se préparent.</p>
+  <div class="niv"><div><h3>Sans option</h3><p>Chauffeur professionnel, véhicule suivi, contact avant prise en charge.</p><ul><li>Suivi du vol et attente incluse</li><li>Point de rencontre confirmé la veille</li><li>Chauffeur formé à la conduite préventive</li></ul></div>
+<div><h3>Accompagnement discret</h3><p>Un agent en civil accompagne le passager du hall au véhicule et jusqu’à l’adresse. Aucun signe extérieur.</p><ul><li>Accueil et accompagnement en zone publique</li><li>Gestion des bagages sensibles</li><li>Itinéraire préparé avec un second trajet de repli</li><li>Compte rendu de mission</li></ul></div>
+<div><h3>Protection rapprochée</h3><p>Équipe dédiée, véhicule d’accompagnement, reconnaissance de l’itinéraire et coordination avec la sûreté aéroportuaire.</p><ul><li>Équipe de deux agents minimum</li><li>Véhicule suiveur</li><li>Reconnaissance préalable de l’itinéraire et des points d’arrêt</li><li>Liaison avec la sûreté de l’aéroport et l’hôtel</li><li>Évaluation de la destination avant confirmation</li></ul></div></div>
+  <div class="avert">Les prestations de protection sont soumises à autorisation et leur contenu change d’un pays à l’autre : ce qui est possible dans une destination ne l’est pas dans une autre. Toute mission protégée est confirmée après étude de la destination, jamais au moment de la réservation.</div>
+</div></section>
+
+<section class="sec" id="deroulement"><div class="wrap">
+  <h2>Comment se passe une prise en charge.</h2>
+  <div class="etapes"><div><span class="n">01</span><b>Réservation</b><p>Vol, terminal, nombre de passagers et de bagages. Une mission protégée passe d’abord par une étude de destination.</p></div>
+<div><span class="n">02</span><b>Veille du départ</b><p>Confirmation du point de rencontre exact, nom du chauffeur, plaque du véhicule et numéro direct.</p></div>
+<div><span class="n">03</span><b>Suivi du vol</b><p>Le vol est suivi. Un retard décale la prise en charge sans frais, une avance la rapproche.</p></div>
+<div><span class="n">04</span><b>Prise en charge</b><p>Accueil en salle d’arrivée, prise des bagages, départ. Attente incluse selon la formule.</p></div></div>
+</div></section>
+
+<footer><div class="wrap">8JET — maquette de démonstration. Aucune réservation
+n'est enregistrée depuis cette page.</div></footer>
+
+<script>
+const A = [{"iata": "LHR", "nom": "Heathrow", "ville": "Londres", "pays": "Royaume-Uni", "region": "Europe", "km": 24, "terminaux": 4}, {"iata": "LGW", "nom": "Gatwick", "ville": "Londres", "pays": "Royaume-Uni", "region": "Europe", "km": 45, "terminaux": 2}, {"iata": "LCY", "nom": "London City", "ville": "Londres", "pays": "Royaume-Uni", "region": "Europe", "km": 11, "terminaux": 1}, {"iata": "CDG", "nom": "Charles-de-Gaulle", "ville": "Paris", "pays": "France", "region": "Europe", "km": 27, "terminaux": 3}, {"iata": "ORY", "nom": "Orly", "ville": "Paris", "pays": "France", "region": "Europe", "km": 18, "terminaux": 4}, {"iata": "LBG", "nom": "Le Bourget", "ville": "Paris", "pays": "France", "region": "Europe", "km": 14, "terminaux": 1}, {"iata": "NCE", "nom": "Côte d’Azur", "ville": "Nice", "pays": "France", "region": "Europe", "km": 7, "terminaux": 2}, {"iata": "AMS", "nom": "Schiphol", "ville": "Amsterdam", "pays": "Pays-Bas", "region": "Europe", "km": 17, "terminaux": 1}, {"iata": "BRU", "nom": "Zaventem", "ville": "Bruxelles", "pays": "Belgique", "region": "Europe", "km": 12, "terminaux": 1}, {"iata": "FRA", "nom": "Francfort", "ville": "Francfort", "pays": "Allemagne", "region": "Europe", "km": 13, "terminaux": 2}, {"iata": "MUC", "nom": "Franz-Josef-Strauss", "ville": "Munich", "pays": "Allemagne", "region": "Europe", "km": 35, "terminaux": 2}, {"iata": "BER", "nom": "Brandebourg", "ville": "Berlin", "pays": "Allemagne", "region": "Europe", "km": 24, "terminaux": 1}, {"iata": "DUS", "nom": "Düsseldorf", "ville": "Düsseldorf", "pays": "Allemagne", "region": "Europe", "km": 8, "terminaux": 3}, {"iata": "ZRH", "nom": "Zurich", "ville": "Zurich", "pays": "Suisse", "region": "Europe", "km": 12, "terminaux": 3}, {"iata": "GVA", "nom": "Genève", "ville": "Genève", "pays": "Suisse", "region": "Europe", "km": 5, "terminaux": 1}, {"iata": "BSL", "nom": "EuroAirport", "ville": "Bâle", "pays": "Suisse", "region": "Europe", "km": 8, "terminaux": 1}, {"iata": "VIE", "nom": "Schwechat", "ville": "Vienne", "pays": "Autriche", "region": "Europe", "km": 18, "terminaux": 3}, {"iata": "SZG", "nom": "W.-A.-Mozart", "ville": "Salzbourg", "pays": "Autriche", "region": "Europe", "km": 4, "terminaux": 1}, {"iata": "MXP", "nom": "Malpensa", "ville": "Milan", "pays": "Italie", "region": "Europe", "km": 49, "terminaux": 2}, {"iata": "LIN", "nom": "Linate", "ville": "Milan", "pays": "Italie", "region": "Europe", "km": 8, "terminaux": 1}, {"iata": "FCO", "nom": "Fiumicino", "ville": "Rome", "pays": "Italie", "region": "Europe", "km": 32, "terminaux": 4}, {"iata": "MAD", "nom": "Barajas", "ville": "Madrid", "pays": "Espagne", "region": "Europe", "km": 15, "terminaux": 4}, {"iata": "BCN", "nom": "El Prat", "ville": "Barcelone", "pays": "Espagne", "region": "Europe", "km": 15, "terminaux": 2}, {"iata": "PMI", "nom": "Son Sant Joan", "ville": "Palma", "pays": "Espagne", "region": "Europe", "km": 8, "terminaux": 1}, {"iata": "LIS", "nom": "Humberto-Delgado", "ville": "Lisbonne", "pays": "Portugal", "region": "Europe", "km": 8, "terminaux": 2}, {"iata": "DUB", "nom": "Dublin", "ville": "Dublin", "pays": "Irlande", "region": "Europe", "km": 11, "terminaux": 2}, {"iata": "CPH", "nom": "Kastrup", "ville": "Copenhague", "pays": "Danemark", "region": "Europe", "km": 9, "terminaux": 3}, {"iata": "ARN", "nom": "Arlanda", "ville": "Stockholm", "pays": "Suède", "region": "Europe", "km": 40, "terminaux": 4}, {"iata": "OSL", "nom": "Gardermoen", "ville": "Oslo", "pays": "Norvège", "region": "Europe", "km": 47, "terminaux": 1}, {"iata": "ATH", "nom": "Elefthérios-Venizélos", "ville": "Athènes", "pays": "Grèce", "region": "Europe", "km": 33, "terminaux": 1}, {"iata": "PRG", "nom": "Václav-Havel", "ville": "Prague", "pays": "Tchéquie", "region": "Europe", "km": 17, "terminaux": 2}, {"iata": "IST", "nom": "Istanbul", "ville": "Istanbul", "pays": "Turquie", "region": "Europe", "km": 42, "terminaux": 1}, {"iata": "JFK", "nom": "John-F.-Kennedy", "ville": "New York", "pays": "États-Unis", "region": "Amérique du Nord", "km": 26, "terminaux": 6}, {"iata": "EWR", "nom": "Newark Liberty", "ville": "New York", "pays": "États-Unis", "region": "Amérique du Nord", "km": 26, "terminaux": 3}, {"iata": "LGA", "nom": "LaGuardia", "ville": "New York", "pays": "États-Unis", "region": "Amérique du Nord", "km": 13, "terminaux": 4}, {"iata": "TEB", "nom": "Teterboro", "ville": "New York", "pays": "États-Unis", "region": "Amérique du Nord", "km": 19, "terminaux": 1}, {"iata": "LAX", "nom": "Los Angeles", "ville": "Los Angeles", "pays": "États-Unis", "region": "Amérique du Nord", "km": 29, "terminaux": 9}, {"iata": "VNY", "nom": "Van Nuys", "ville": "Los Angeles", "pays": "États-Unis", "region": "Amérique du Nord", "km": 32, "terminaux": 1}, {"iata": "SFO", "nom": "San Francisco", "ville": "San Francisco", "pays": "États-Unis", "region": "Amérique du Nord", "km": 21, "terminaux": 4}, {"iata": "ORD", "nom": "O’Hare", "ville": "Chicago", "pays": "États-Unis", "region": "Amérique du Nord", "km": 27, "terminaux": 4}, {"iata": "MIA", "nom": "Miami", "ville": "Miami", "pays": "États-Unis", "region": "Amérique du Nord", "km": 13, "terminaux": 3}, {"iata": "FLL", "nom": "Fort Lauderdale", "ville": "Fort Lauderdale", "pays": "États-Unis", "region": "Amérique du Nord", "km": 6, "terminaux": 4}, {"iata": "OPF", "nom": "Opa-locka", "ville": "Miami", "pays": "États-Unis", "region": "Amérique du Nord", "km": 18, "terminaux": 1}, {"iata": "BOS", "nom": "Logan", "ville": "Boston", "pays": "États-Unis", "region": "Amérique du Nord", "km": 6, "terminaux": 4}, {"iata": "IAD", "nom": "Dulles", "ville": "Washington", "pays": "États-Unis", "region": "Amérique du Nord", "km": 42, "terminaux": 2}, {"iata": "DCA", "nom": "Reagan National", "ville": "Washington", "pays": "États-Unis", "region": "Amérique du Nord", "km": 6, "terminaux": 3}, {"iata": "ATL", "nom": "Hartsfield-Jackson", "ville": "Atlanta", "pays": "États-Unis", "region": "Amérique du Nord", "km": 16, "terminaux": 2}, {"iata": "DFW", "nom": "Dallas-Fort Worth", "ville": "Dallas", "pays": "États-Unis", "region": "Amérique du Nord", "km": 32, "terminaux": 5}, {"iata": "IAH", "nom": "George-Bush", "ville": "Houston", "pays": "États-Unis", "region": "Amérique du Nord", "km": 37, "terminaux": 5}, {"iata": "LAS", "nom": "Harry-Reid", "ville": "Las Vegas", "pays": "États-Unis", "region": "Amérique du Nord", "km": 8, "terminaux": 4}, {"iata": "YYZ", "nom": "Pearson", "ville": "Toronto", "pays": "Canada", "region": "Amérique du Nord", "km": 22, "terminaux": 2}, {"iata": "YUL", "nom": "Trudeau", "ville": "Montréal", "pays": "Canada", "region": "Amérique du Nord", "km": 20, "terminaux": 1}, {"iata": "YVR", "nom": "Vancouver", "ville": "Vancouver", "pays": "Canada", "region": "Amérique du Nord", "km": 12, "terminaux": 3}, {"iata": "MEX", "nom": "Benito-Juárez", "ville": "Mexico", "pays": "Mexique", "region": "Amérique du Nord", "km": 13, "terminaux": 2}, {"iata": "DXB", "nom": "Dubaï International", "ville": "Dubaï", "pays": "Émirats arabes unis", "region": "Moyen-Orient", "km": 5, "terminaux": 3}, {"iata": "DWC", "nom": "Al-Maktoum", "ville": "Dubaï", "pays": "Émirats arabes unis", "region": "Moyen-Orient", "km": 37, "terminaux": 1}, {"iata": "AUH", "nom": "Zayed", "ville": "Abou Dabi", "pays": "Émirats arabes unis", "region": "Moyen-Orient", "km": 32, "terminaux": 3}, {"iata": "DOH", "nom": "Hamad", "ville": "Doha", "pays": "Qatar", "region": "Moyen-Orient", "km": 15, "terminaux": 1}, {"iata": "RUH", "nom": "Roi-Khalid", "ville": "Riyad", "pays": "Arabie saoudite", "region": "Moyen-Orient", "km": 35, "terminaux": 5}, {"iata": "JED", "nom": "Roi-Abdulaziz", "ville": "Djeddah", "pays": "Arabie saoudite", "region": "Moyen-Orient", "km": 19, "terminaux": 3}, {"iata": "KWI", "nom": "Koweït", "ville": "Koweït", "pays": "Koweït", "region": "Moyen-Orient", "km": 16, "terminaux": 4}, {"iata": "MCT", "nom": "Mascate", "ville": "Mascate", "pays": "Oman", "region": "Moyen-Orient", "km": 20, "terminaux": 1}, {"iata": "TLV", "nom": "Ben-Gourion", "ville": "Tel-Aviv", "pays": "Israël", "region": "Moyen-Orient", "km": 20, "terminaux": 2}, {"iata": "BEY", "nom": "Rafic-Hariri", "ville": "Beyrouth", "pays": "Liban", "region": "Moyen-Orient", "km": 9, "terminaux": 1}, {"iata": "HND", "nom": "Haneda", "ville": "Tokyo", "pays": "Japon", "region": "Asie", "km": 18, "terminaux": 3}, {"iata": "NRT", "nom": "Narita", "ville": "Tokyo", "pays": "Japon", "region": "Asie", "km": 62, "terminaux": 3}, {"iata": "KIX", "nom": "Kansai", "ville": "Osaka", "pays": "Japon", "region": "Asie", "km": 46, "terminaux": 2}, {"iata": "ICN", "nom": "Incheon", "ville": "Séoul", "pays": "Corée du Sud", "region": "Asie", "km": 48, "terminaux": 2}, {"iata": "PEK", "nom": "Pékin-Capitale", "ville": "Pékin", "pays": "Chine", "region": "Asie", "km": 26, "terminaux": 3}, {"iata": "PKX", "nom": "Daxing", "ville": "Pékin", "pays": "Chine", "region": "Asie", "km": 46, "terminaux": 1}, {"iata": "PVG", "nom": "Pudong", "ville": "Shanghai", "pays": "Chine", "region": "Asie", "km": 32, "terminaux": 2}, {"iata": "HKG", "nom": "Hong Kong", "ville": "Hong Kong", "pays": "Hong Kong", "region": "Asie", "km": 34, "terminaux": 2}, {"iata": "TPE", "nom": "Taoyuan", "ville": "Taipei", "pays": "Taïwan", "region": "Asie", "km": 40, "terminaux": 2}, {"iata": "SIN", "nom": "Changi", "ville": "Singapour", "pays": "Singapour", "region": "Asie", "km": 20, "terminaux": 4}, {"iata": "BKK", "nom": "Suvarnabhumi", "ville": "Bangkok", "pays": "Thaïlande", "region": "Asie", "km": 30, "terminaux": 1}, {"iata": "KUL", "nom": "Kuala Lumpur", "ville": "Kuala Lumpur", "pays": "Malaisie", "region": "Asie", "km": 45, "terminaux": 2}, {"iata": "DEL", "nom": "Indira-Gandhi", "ville": "New Delhi", "pays": "Inde", "region": "Asie", "km": 16, "terminaux": 3}, {"iata": "BOM", "nom": "Chhatrapati-Shivaji", "ville": "Mumbai", "pays": "Inde", "region": "Asie", "km": 8, "terminaux": 2}, {"iata": "CAI", "nom": "Le Caire", "ville": "Le Caire", "pays": "Égypte", "region": "Afrique", "km": 22, "terminaux": 3}, {"iata": "CMN", "nom": "Mohammed-V", "ville": "Casablanca", "pays": "Maroc", "region": "Afrique", "km": 30, "terminaux": 2}, {"iata": "RAK", "nom": "Ménara", "ville": "Marrakech", "pays": "Maroc", "region": "Afrique", "km": 5, "terminaux": 2}, {"iata": "ALG", "nom": "Houari-Boumédiène", "ville": "Alger", "pays": "Algérie", "region": "Afrique", "km": 17, "terminaux": 3}, {"iata": "TUN", "nom": "Carthage", "ville": "Tunis", "pays": "Tunisie", "region": "Afrique", "km": 8, "terminaux": 2}, {"iata": "JNB", "nom": "O.-R.-Tambo", "ville": "Johannesburg", "pays": "Afrique du Sud", "region": "Afrique", "km": 25, "terminaux": 2}, {"iata": "CPT", "nom": "Le Cap", "ville": "Le Cap", "pays": "Afrique du Sud", "region": "Afrique", "km": 20, "terminaux": 2}, {"iata": "NBO", "nom": "Jomo-Kenyatta", "ville": "Nairobi", "pays": "Kenya", "region": "Afrique", "km": 18, "terminaux": 4}, {"iata": "GRU", "nom": "Guarulhos", "ville": "São Paulo", "pays": "Brésil", "region": "Amérique du Sud", "km": 28, "terminaux": 3}, {"iata": "GIG", "nom": "Galeão", "ville": "Rio de Janeiro", "pays": "Brésil", "region": "Amérique du Sud", "km": 20, "terminaux": 2}, {"iata": "EZE", "nom": "Ezeiza", "ville": "Buenos Aires", "pays": "Argentine", "region": "Amérique du Sud", "km": 33, "terminaux": 3}, {"iata": "SCL", "nom": "Arturo-Merino-Benítez", "ville": "Santiago", "pays": "Chili", "region": "Amérique du Sud", "km": 17, "terminaux": 2}, {"iata": "BOG", "nom": "El Dorado", "ville": "Bogotá", "pays": "Colombie", "region": "Amérique du Sud", "km": 15, "terminaux": 2}, {"iata": "LIM", "nom": "Jorge-Chávez", "ville": "Lima", "pays": "Pérou", "region": "Amérique du Sud", "km": 11, "terminaux": 1}, {"iata": "PTY", "nom": "Tocumen", "ville": "Panama", "pays": "Panama", "region": "Amérique du Sud", "km": 24, "terminaux": 2}, {"iata": "SYD", "nom": "Kingsford-Smith", "ville": "Sydney", "pays": "Australie", "region": "Océanie", "km": 8, "terminaux": 3}, {"iata": "MEL", "nom": "Tullamarine", "ville": "Melbourne", "pays": "Australie", "region": "Océanie", "km": 23, "terminaux": 4}, {"iata": "AKL", "nom": "Auckland", "ville": "Auckland", "pays": "Nouvelle-Zélande", "region": "Océanie", "km": 21, "terminaux": 2}];
+const F = [{"id": "classe-e", "nom": "Mercedes-Benz Classe E", "type": "Berline", "pax": 3, "bag": 3, "desc": "La berline de reference du transfert d’affaires. Discrete, silencieuse, suffisante pour deux passagers et leurs bagages cabine.", "coef": 1.0}, {"id": "classe-s", "nom": "Mercedes-Benz Classe S", "type": "Berline de représentation", "pax": 3, "bag": 3, "desc": "Empattement long, sièges arrière inclinables, isolation phonique renforcée. C’est la voiture qu’on prend quand le trajet doit être un bureau.", "coef": 1.55}, {"id": "eqs", "nom": "Mercedes-Benz EQS", "type": "Berline électrique", "pax": 3, "bag": 3, "desc": "Équivalent Classe S en électrique. Demandée par les entreprises qui rapportent leurs émissions, et par les villes à zone à faibles émissions.", "coef": 1.5}, {"id": "classe-v", "nom": "Mercedes-Benz Classe V", "type": "Van", "pax": 6, "bag": 6, "desc": "Six places assises face à la route et de vrais volumes de coffre. Le choix par défaut dès qu’il y a une famille ou une délégation.", "coef": 1.35}, {"id": "sprinter", "nom": "Mercedes-Benz Sprinter", "type": "Van grand volume", "pax": 12, "bag": 14, "desc": "Équipages, tournées, groupes. C’est le seul véhicule de la liste qui absorbe un excédent de bagages sans second véhicule.", "coef": 1.7}, {"id": "classe-g", "nom": "Mercedes-Benz Classe G", "type": "SUV", "pax": 4, "bag": 3, "desc": "Demandé sur les destinations de montagne et sur les missions protégées, où la garde au sol et la traction comptent plus que le confort arrière.", "coef": 1.8}];
+const S = [{"id": "aucune", "nom": "Sans option", "coef": 0.0, "court": "Chauffeur professionnel, véhicule suivi, contact avant prise en charge.", "inclus": ["Suivi du vol et attente incluse", "Point de rencontre confirmé la veille", "Chauffeur formé à la conduite préventive"]}, {"id": "discret", "nom": "Accompagnement discret", "coef": 0.45, "court": "Un agent en civil accompagne le passager du hall au véhicule et jusqu’à l’adresse. Aucun signe extérieur.", "inclus": ["Accueil et accompagnement en zone publique", "Gestion des bagages sensibles", "Itinéraire préparé avec un second trajet de repli", "Compte rendu de mission"]}, {"id": "rapproche", "nom": "Protection rapprochée", "coef": 1.1, "court": "Équipe dédiée, véhicule d’accompagnement, reconnaissance de l’itinéraire et coordination avec la sûreté aéroportuaire.", "inclus": ["Équipe de deux agents minimum", "Véhicule suiveur", "Reconnaissance préalable de l’itinéraire et des points d’arrêt", "Liaison avec la sûreté de l’aéroport et l’hôtel", "Évaluation de la destination avant confirmation"]}];
+const PRISE = 95, PARKM = 2.6, MINIMUM = 140;
+
+const $ = s => document.querySelector(s);
+const eur = v => v.toLocaleString('fr-FR') + ' €';
+let sel = A[0].iata, veh = F[0].id, secu = S[0].id, filtre = '';
+
+/* Le tarif est calcule ICI et cote Python avec la MEME formule. Si les deux
+   divergent, la page annonce un prix que le devis ne confirmera pas — c'est le
+   defaut qu'on avait attrape sur les paliers du catalogue. */
+function tarif(km, cv, cs){
+  const base = Math.max(MINIMUM, PRISE + km * PARKM);
+  return Math.round(base * cv * (1 + cs) / 5) * 5;
+}
+const apt = () => A.find(a => a.iata === sel);
+const vhc = () => F.find(v => v.id === veh);
+const sec = () => S.find(x => x.id === secu);
+
+function rendreIndex(){
+  const q = filtre.trim().toLowerCase();
+  const vus = A.filter(a => !q || (a.iata + ' ' + a.nom + ' ' + a.ville + ' ' + a.pays)
+                                    .toLowerCase().includes(q));
+  const box = $('#liste');
+  if (!vus.length){ box.innerHTML = '<p class="vide">Aucun aéroport ne correspond.</p>'; return; }
+  let h = '', reg = null;
+  for (const a of vus){
+    if (a.region !== reg){ reg = a.region; h += `<div class="reg">${reg}</div>`; }
+    h += `<button class="apt${a.iata === sel ? ' on' : ''}" data-iata="${a.iata}">`
+       + `<code>${a.iata}</code><span>${a.ville}</span><em>${a.pays}</em></button>`;
+  }
+  box.innerHTML = h;
+  $('#compte').textContent = vus.length + (vus.length > 1 ? ' aéroports' : ' aéroport');
+}
+
+function rendrePage(){
+  const a = apt(), v = vhc(), s = sec();
+  const n = A.findIndex(x => x.iata === a.iata) + 1;
+  $('#folio').innerHTML = `Page <b>${String(n).padStart(2,'0')}</b> sur ${A.length}`
+                        + ` &nbsp;·&nbsp; ${a.region}`;
+  /* « Geneve — Geneve » : quand l'aeroport porte le nom de sa ville, le tiret
+     repete le mot. On bascule sur la forme longue. */
+  $('#titre').textContent = a.nom === a.ville ? 'Aéroport de ' + a.ville
+                                              : a.nom + ' — ' + a.ville;
+  $('#sous').textContent = `${a.pays} · code IATA ${a.iata} · `
+    + `${a.terminaux} terminal${a.terminaux > 1 ? 'x' : ''}`;
+  const mn = Math.round(a.km * 1.5) + 12;
+  $('#faits').innerHTML = `
+    <div><b>${a.iata}</b><span>Code IATA</span></div>
+    <div><b>${a.km} km</b><span>Jusqu'au centre-ville</span></div>
+    <div><b>~${mn} min</b><span>Trajet indicatif</span></div>
+    <div><b>${a.terminaux}</b><span>Terminal${a.terminaux > 1 ? 'x' : ''}</span></div>`;
+
+  $('#vehs').innerHTML = F.map(x => `<button class="opt${x.id === veh ? ' on' : ''}" data-veh="${x.id}">
+      <b>${x.nom.replace('Mercedes-Benz ','')}</b>
+      <span>${x.type} · ${x.pax} pass. · ${x.bag} bagages</span></button>`).join('');
+  $('#secus').innerHTML = S.map(x => `<button class="opt${x.id === secu ? ' on' : ''}" data-secu="${x.id}">
+      <b>${x.nom}</b><span>${x.court}</span></button>`).join('');
+
+  const p = tarif(a.km, v.coef, s.coef);
+  $('#prix').textContent = eur(p);
+  $('#det').textContent = `${v.nom} · ${s.nom} · ${a.iata} vers le centre de ${a.ville}`;
+  $('#inclus').innerHTML = s.inclus.map(i => `<li>${i}</li>`).join('');
+  $('#pratique').innerHTML = `
+    <li><b>Prise en charge</b> — salle d'arrivée, panneau nominatif</li>
+    <li><b>Attente incluse</b> — 60 min après l'atterrissage</li>
+    <li><b>Suivi du vol</b> — retard ou avance répercutés sans frais</li>
+    <li><b>Annulation</b> — sans frais jusqu'à 12 h avant</li>`;
+  document.querySelectorAll('.apt').forEach(b =>
+    b.classList.toggle('on', b.dataset.iata === sel));
+}
+
+document.addEventListener('click', e => {
+  const a = e.target.closest('[data-iata]');
+  if (a){ sel = a.dataset.iata; rendrePage();
+          document.querySelector('.pane').scrollIntoView({block:'start', behavior:'smooth'}); return; }
+  const v = e.target.closest('[data-veh]');
+  if (v){ veh = v.dataset.veh; rendrePage(); return; }
+  const s = e.target.closest('[data-secu]');
+  if (s){ secu = s.dataset.secu; rendrePage(); return; }
+});
+$('#q').addEventListener('input', e => { filtre = e.target.value; rendreIndex(); });
+
+rendreIndex(); rendrePage();
+
+</script>
+</body></html>
