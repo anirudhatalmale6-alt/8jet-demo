@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>8JET — transfert aéroport de prestige et transport sécurisé</title>
-<meta name="description" content="Transfert aéroport de prestige : 8 véhicules, 98 aéroports, quatre niveaux d&#x27;accompagnement.">
+<title>La flotte — 8JET</title>
+<meta name="description" content="Les 8 véhicules, filtrables par catégorie, passagers et bagages.">
 <meta name="robots" content="noindex,nofollow">
 <style>
 *,*::before,*::after{box-sizing:border-box}
@@ -207,61 +207,64 @@ footer{padding:40px 0 60px;color:var(--mu);font-size:13.5px}
 présentés sont des exemples de travail, pas une offre commerciale.</div>
 <header class="top"><div class="tbar">
   <a class="logo" href="index.html">8JET</a>
-  <nav class="nav"><a href="index.html" aria-current="page">Accueil</a><a href="flotte.html">La flotte</a><a href="aeroports.html">Aéroports</a><a href="index.html#etapes">Comment ça marche</a></nav>
+  <nav class="nav"><a href="index.html">Accueil</a><a href="flotte.html" aria-current="page">La flotte</a><a href="aeroports.html">Aéroports</a><a href="index.html#etapes">Comment ça marche</a></nav>
 </div></header>
 <main>
 
-<section class="hero"><div class="wrap">
-  <p class="sur">Transfert aéroport · 98 aéroports</p>
-  <h1>transfert aéroport de prestige et transport sécurisé</h1>
-  <p class="lede">Une flotte de 8 véhicules, 98
-  aéroports dans 82 villes, et quatre niveaux d'accompagnement. On
-  choisit le véhicule, on donne le vol, le reste est organisé.</p>
-  <p><a class="btn-wa" style="display:inline-block;margin-top:18px"
-     href="flotte.html">Voir la flotte</a></p>
-</div></section>
-
+<nav class="fil"><div class="wrap"><a href="index.html">Accueil</a> / La flotte</div></nav>
 <section class="sec"><div class="wrap">
-  <h2>La flotte</h2>
-  <p class="note" style="margin-bottom:18px">Trois véhicules parmi
-  8. Chacun a sa fiche, avec ses capacités et ses options.</p>
-  <div class="grille-v"><a class="vign" href="vehicule-classe-e.html">
-  <span class="img">Photo à fournir</span>
-  <span class="corps">
-    <span class="cl">Berline</span>
-    <h3>Mercedes-Benz Classe E</h3>
-    <span class="sp"><span>3 passagers</span><span>3 bagages</span></span>
-  </span>
-</a><a class="vign" href="vehicule-classe-s.html">
-  <span class="img">Photo à fournir</span>
-  <span class="corps">
-    <span class="cl">Berline de représentation</span>
-    <h3>Mercedes-Benz Classe S</h3>
-    <span class="sp"><span>3 passagers</span><span>3 bagages</span></span>
-  </span>
-</a><a class="vign" href="vehicule-eqs.html">
-  <span class="img">Photo à fournir</span>
-  <span class="corps">
-    <span class="cl">Berline électrique</span>
-    <h3>Mercedes-Benz EQS</h3>
-    <span class="sp"><span>3 passagers</span><span>3 bagages</span></span>
-  </span>
-</a></div>
-  <p style="margin-top:18px"><a href="flotte.html">Les 8 véhicules et leurs filtres →</a></p>
+  <h1>La flotte</h1>
+  <p class="note" style="margin-bottom:20px">8 véhicules.
+  Filtrez par catégorie, par nombre de passagers ou de bagages : la liste
+  répond pendant que vous changez.</p>
+
+  <div class="barre">
+    <select id="fCl"><option value="">Toutes les catégories</option><option value="Berline">Berline</option><option value="Berline de représentation">Berline de représentation</option><option value="Berline discrète">Berline discrète</option><option value="Berline électrique">Berline électrique</option><option value="Haut de gamme, modèle non publié">Haut de gamme, modèle non publié</option><option value="Van">Van</option><option value="Van banalisé">Van banalisé</option><option value="Van grand volume">Van grand volume</option></select>
+    <select id="fPax"><option value="">Passagers</option>
+      <option value="3">3 et plus</option><option value="6">6 et plus</option>
+      <option value="12">12 et plus</option></select>
+    <select id="fBag"><option value="">Bagages</option>
+      <option value="3">3 et plus</option><option value="6">6 et plus</option>
+      <option value="10">10 et plus</option></select>
+    <span class="compteur" id="compteur"></span>
+  </div>
+
+  <div class="grille-v" id="res"></div>
+  <p class="rien" id="rien" hidden>Aucun véhicule ne correspond à ces critères.</p>
 </div></section>
 
-<section class="sec" id="etapes"><div class="wrap">
-  <h2>Comment ça marche</h2>
-  <div class="grille-v"><div class="carte"><span class="num">01</span><h3>Réservation</h3><p>Vol, terminal, nombre de passagers et de bagages. Une mission protégée passe d’abord par une étude de destination.</p></div><div class="carte"><span class="num">02</span><h3>Veille du départ</h3><p>Confirmation du point de rencontre exact, nom du chauffeur, plaque du véhicule et numéro direct.</p></div><div class="carte"><span class="num">03</span><h3>Suivi du vol</h3><p>Le vol est suivi. Un retard décale la prise en charge sans frais, une avance la rapproche.</p></div><div class="carte"><span class="num">04</span><h3>Prise en charge</h3><p>Accueil en salle d’arrivée, prise des bagages, départ. Attente incluse selon la formule.</p></div></div>
-</div></section>
-
-<section class="sec"><div class="wrap">
-  <h2>Où nous prenons en charge</h2>
-  <p class="note">98 aéroports, 82 villes,
-  50 pays — Montréal compris, avec Trudeau,
-  Saint-Hubert et Mirabel.</p>
-  <p style="margin-top:14px"><a href="aeroports.html">Voir la couverture →</a></p>
-</div></section>
+<script id="vehicules" type="application/json">[{"c": "classe-e", "n": "Mercedes-Benz Classe E", "cl": "Berline", "p": 3, "b": 3}, {"c": "classe-s", "n": "Mercedes-Benz Classe S", "cl": "Berline de représentation", "p": 3, "b": 3}, {"c": "eqs", "n": "Mercedes-Benz EQS", "cl": "Berline électrique", "p": 3, "b": 3}, {"c": "classe-v", "n": "Mercedes-Benz Classe V", "cl": "Van", "p": 6, "b": 6}, {"c": "sprinter", "n": "Mercedes-Benz Sprinter", "cl": "Van grand volume", "p": 12, "b": 14}, {"c": "classe-c", "n": "Mercedes-Benz Classe C", "cl": "Berline discrète", "p": 3, "b": 2}, {"c": "vito", "n": "Mercedes-Benz Vito", "cl": "Van banalisé", "p": 7, "b": 7}, {"c": "sur-mesure", "n": "Véhicule sur mesure", "cl": "Haut de gamme, modèle non publié", "p": 4, "b": 4}]</script>
+<script>
+(function () {
+  var V = JSON.parse(document.getElementById('vehicules').textContent);
+  var res = document.getElementById('res'), c = document.getElementById('compteur'),
+      rien = document.getElementById('rien');
+  function v(id) { var e = document.getElementById(id); return e.value || null; }
+  function rendre() {
+    var cl = v('fCl'), pax = v('fPax'), bag = v('fBag');
+    var g = V.filter(function (x) {
+      if (cl && x.cl !== cl) return false;
+      if (pax && x.p < parseInt(pax, 10)) return false;
+      if (bag && x.b < parseInt(bag, 10)) return false;
+      return true;
+    });
+    res.innerHTML = g.map(function (x) {
+      return '<a class="vign" href="vehicule-' + x.c + '.html">' +
+        '<span class="img">Photo à fournir</span><span class="corps">' +
+        '<span class="cl">' + x.cl + '</span><h3>' + x.n + '</h3>' +
+        '<span class="sp"><span>' + x.p + ' passagers</span><span>' +
+        x.b + ' bagages</span></span></span></a>';
+    }).join('');
+    c.textContent = g.length + (g.length > 1 ? ' véhicules' : ' véhicule');
+    c.hidden = g.length === 0;
+    rien.hidden = g.length > 0;
+  }
+  ['fCl', 'fPax', 'fBag'].forEach(function (id) {
+    document.getElementById(id).addEventListener('change', rendre);
+  });
+  rendre();
+})();
+</script>
 
 </main>
 <footer class="pied"><div class="wrap">

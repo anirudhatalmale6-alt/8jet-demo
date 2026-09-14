@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aéroports — 8JET</title>
+<meta name="description" content="Les 98 aéroports desservis, par région.">
+<meta name="robots" content="noindex,nofollow">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --n:#0b1017; --n2:#121a25; --l:#243040; --tx:#dfe6ee; --mu:#9fb0c2;
+  --ac:#c8a862; --acd:#b08f45;
+}
+html,body{margin:0;padding:0}
+body{background:var(--n);color:var(--tx);
+  font:16px/1.6 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+  "Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--ac);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1240px;margin:0 auto;padding:0 22px}
+h1,h2,h3{line-height:1.14;letter-spacing:-.024em;margin:0 0 14px;font-weight:800;color:#fff}
+
+.demo{background:#000;color:#e8eef4;font-size:12.5px;padding:8px 16px;text-align:center}
+.demo b{color:var(--ac)}
+
+header.top{border-bottom:1px solid var(--l);position:sticky;top:0;z-index:30;
+  background:rgba(11,16,23,.92);backdrop-filter:blur(8px)}
+.tbar{display:flex;align-items:center;gap:22px;padding:14px 22px}
+.logo{font-weight:800;font-size:21px;letter-spacing:-.03em;color:#fff}
+.logo span{color:var(--ac)}
+.tnav{margin-left:auto;display:flex;gap:20px;font-size:14.5px}
+.tnav a{color:var(--mu)} .tnav a:hover{color:var(--ac);text-decoration:none}
+
+/* --- heros --- */
+.hero{padding:74px 0 60px;border-bottom:1px solid var(--l);
+  background:radial-gradient(820px 420px at 80% 12%,rgba(200,168,98,.11),transparent 60%)}
+.kick{color:var(--ac);font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;margin:0 0 20px}
+.hero h1{font-size:clamp(34px,5.2vw,60px);max-width:19ch;margin-bottom:20px}
+.lede{font-size:17.5px;color:var(--mu);max-width:60ch;margin:0 0 28px}
+.mes{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--l);
+  border:1px solid var(--l);margin-top:40px}
+.mes>div{background:var(--n);padding:22px 20px}
+.mes b{display:block;font-size:30px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.mes span{font-size:13px;color:var(--mu)}
+
+/* --- LE LIVRE : index a gauche, page a droite --- */
+.book{display:grid;grid-template-columns:340px 1fr;gap:0;border-bottom:1px solid var(--l)}
+.idx{border-right:1px solid var(--l);padding:26px 0 40px;
+  position:sticky;top:60px;align-self:start;max-height:calc(100vh - 60px);overflow-y:auto}
+.idx h3{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--mu);
+  padding:0 22px;margin-bottom:12px}
+.rech{margin:0 22px 14px;display:flex;border:1px solid var(--l);background:var(--n2)}
+.rech input{flex:1;background:none;border:0;outline:0;color:var(--tx);font:inherit;
+  font-size:14px;padding:10px 12px;min-width:0}
+.reg{padding:0 22px;margin:16px 0 6px;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ac);font-weight:700}
+.apt{display:flex;align-items:baseline;gap:10px;width:100%;text-align:left;border:0;
+  background:none;color:var(--tx);font:inherit;font-size:14px;padding:7px 22px;cursor:pointer}
+.apt:hover{background:var(--n2);color:var(--ac)}
+.apt.on{background:var(--n2);color:var(--ac);box-shadow:inset 3px 0 0 var(--ac);font-weight:700}
+.apt code{font:700 12px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color:var(--mu);width:34px;flex:0 0 34px}
+.apt.on code{color:var(--ac)}
+.apt em{margin-left:auto;font-style:normal;font-size:12px;color:var(--mu)}
+.vide{padding:20px 22px;color:var(--mu);font-size:13.5px}
+
+.pane{padding:30px 30px 60px;min-width:0}
+.folio{display:flex;align-items:baseline;gap:14px;color:var(--mu);font-size:12.5px;
+  letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+.folio b{color:var(--ac);font-weight:700}
+.pane h2{font-size:clamp(25px,3.4vw,38px);margin-bottom:6px}
+.sous{color:var(--mu);font-size:15.5px;margin:0 0 24px}
+.faits{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;background:var(--l);border:1px solid var(--l);margin-bottom:28px}
+.faits>div{background:var(--n2);padding:15px 16px}
+.faits b{display:block;font-size:19px;color:#fff;font-weight:800}
+.faits span{font-size:12px;color:var(--mu)}
+
+/* --- le configurateur : c'est la que la page devient vivante --- */
+.cfg{border:1px solid var(--l);background:var(--n2);padding:22px;margin-bottom:26px}
+.cfg h3{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--mu);
+  margin-bottom:16px;font-weight:700}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:9px;margin-bottom:18px}
+.opt{border:1px solid var(--l);background:var(--n);padding:12px 14px;cursor:pointer;
+  display:flex;flex-direction:column;gap:3px;text-align:left;color:var(--tx);font:inherit}
+.opt:hover{border-color:var(--ac)}
+.opt.on{border-color:var(--ac);background:rgba(200,168,98,.09)}
+.opt b{font-size:14px;color:#fff}
+.opt span{font-size:12px;color:var(--mu)}
+.opt.on b{color:var(--ac)}
+.devis{border-top:1px solid var(--l);padding-top:16px;display:flex;flex-wrap:wrap;
+  align-items:baseline;gap:12px}
+.devis .p{font-size:34px;font-weight:800;color:#fff;letter-spacing:-.03em}
+.devis .d{font-size:13px;color:var(--mu)}
+.devis .cta{margin-left:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 24px;
+  font:700 14.5px/1.2 inherit;border:1.5px solid var(--ac);background:var(--ac);
+  color:#10161f;cursor:pointer;text-decoration:none}
+.btn:hover{background:var(--acd);border-color:var(--acd);text-decoration:none;color:#10161f}
+.btn-g{background:transparent;color:#fff}
+.btn-g:hover{background:transparent;color:var(--ac)}
+
+.detail{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px}
+.detail h4{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--mu);margin:0 0 10px;font-weight:700}
+.detail ul{list-style:none;margin:0;padding:0;font-size:14px;color:var(--mu)}
+.detail li{padding:6px 0;border-bottom:1px solid var(--l)}
+.detail li b{color:var(--tx);font-weight:600}
+
+/* --- flotte --- */
+section.sec{padding:66px 0;border-bottom:1px solid var(--l)}
+section.sec h2{font-size:clamp(24px,3vw,34px);max-width:24ch}
+.sub{color:var(--mu);max-width:62ch;margin:-4px 0 30px;font-size:16px}
+.flotte{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1px;background:var(--l);border:1px solid var(--l)}
+.veh{background:var(--n2);padding:24px 22px;display:flex;flex-direction:column;gap:8px}
+.veh .t{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ac);font-weight:700}
+.veh b{font-size:18px;color:#fff}
+.veh p{margin:0;font-size:14px;color:var(--mu);line-height:1.6}
+.cap{display:flex;gap:18px;margin-top:auto;padding-top:12px;border-top:1px solid var(--l);
+  font-size:13px;color:var(--mu)}
+.cap b{color:#fff;font-size:15px}
+
+/* --- securite --- */
+.niv{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px}
+.niv>div{border-top:2px solid var(--ac);padding-top:16px}
+.niv h3{font-size:17px;margin-bottom:8px}
+.niv p{color:var(--mu);font-size:14.5px;margin:0 0 12px}
+.niv ul{list-style:none;margin:0;padding:0;font-size:13.5px;color:var(--mu)}
+.niv li{padding:5px 0 5px 16px;position:relative}
+.niv li::before{content:"";position:absolute;left:0;top:13px;width:6px;height:1px;background:var(--ac)}
+.avert{border-left:3px solid var(--ac);background:rgba(200,168,98,.07);
+  padding:16px 20px;margin-top:34px;font-size:14.5px;color:var(--tx);max-width:86ch}
+
+/* --- etapes --- */
+.etapes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:1px;background:var(--l);border:1px solid var(--l)}
+.etapes>div{background:var(--n2);padding:24px 22px}
+.etapes .n{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--ac)}
+.etapes b{display:block;font-size:16.5px;color:#fff;margin:8px 0 7px}
+.etapes p{margin:0;font-size:14px;color:var(--mu);line-height:1.6}
+
+footer{padding:40px 0 60px;color:var(--mu);font-size:13.5px}
+
+@media (max-width:1000px){
+  .book{grid-template-columns:1fr}
+  .idx{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--l)}
+  .idx .liste{max-height:320px;overflow-y:auto}
+  .pane{padding:26px 0 46px}
+  .mes{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .mes{grid-template-columns:1fr}
+  .devis .cta{margin-left:0;width:100%}
+  .btn{width:100%}
+}
+
+/* ---- le menu -----------------------------------------------------------
+   La feuille d'origine etait faite pour UNE page : il n'y avait pas de menu,
+   donc aucune regle pour l'espacer. Sans ca les liens se collent. */
+.nav{display:flex;gap:22px;flex-wrap:wrap;margin-left:auto;font-size:14.5px}
+.nav a{color:var(--mu);text-decoration:none;padding:3px 0;
+  border-bottom:2px solid transparent}
+.nav a:hover{color:#fff;text-decoration:none}
+.nav a[aria-current="page"]{color:#fff;border-bottom-color:var(--ac)}
+@media (max-width:620px){.nav{gap:14px;font-size:13.5px}}
+
+/* ---- la structure de place de marche ---------------------------------- */
+.fil{font-size:13px;color:var(--mu);margin:18px 0 6px}
+.fil a{color:var(--mu)}
+.grille-v{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.vign{display:block;background:var(--n2);border:1px solid var(--l);border-radius:14px;
+  overflow:hidden;text-decoration:none;transition:border-color .16s,transform .16s}
+.vign:hover{border-color:var(--ac);transform:translateY(-3px);text-decoration:none}
+.vign .img{aspect-ratio:16/10;display:grid;place-items:center;
+  background:linear-gradient(140deg,#11161f,#0b1017);border-bottom:1px solid var(--l);
+  color:var(--mu);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase}
+.vign .corps{padding:16px 18px 18px}
+.vign h3{font-size:17px;margin:0 0 4px;color:#fff}
+.vign .cl{color:var(--ac);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase}
+.vign .sp{display:flex;gap:14px;color:var(--mu);font-size:13.5px;margin-top:10px}
+.barre{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 18px}
+.barre select,.barre input{background:var(--n2);color:var(--tx);border:1px solid var(--l);
+  border-radius:9px;padding:9px 12px;font:inherit;font-size:14px}
+.compteur{color:var(--ac);font-size:13.5px;margin-left:auto;font-variant-numeric:tabular-nums}
+.rien{color:var(--mu);text-align:center;padding:36px 0}
+.fiche-v{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:28px;
+  align-items:start}
+.specs{width:100%;border-collapse:collapse;font-size:15px;margin-top:6px}
+.specs th,.specs td{padding:11px 0;border-bottom:1px solid var(--l);text-align:left}
+.specs th{color:var(--mu);font-weight:500;width:46%}
+.encart{background:var(--n2);border:1px solid var(--l);border-radius:14px;padding:20px}
+.encart h3{font-size:17px;margin:0 0 10px}
+.btn-wa{display:block;text-align:center;background:var(--ac);color:#0d1116;font-weight:700;
+  border-radius:999px;padding:13px 20px;text-decoration:none;margin-top:14px}
+.btn-wa:hover{background:var(--acd);text-decoration:none;color:#0d1116}
+.note{color:var(--mu);font-size:13px}
+@media (max-width:980px){.grille-v{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fiche-v{grid-template-columns:1fr}}
+@media (max-width:640px){.grille-v{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="demo"><b>Démonstration.</b> Le nom, les tarifs et les véhicules
+présentés sont des exemples de travail, pas une offre commerciale.</div>
+<header class="top"><div class="tbar">
+  <a class="logo" href="index.html">8JET</a>
+  <nav class="nav"><a href="index.html">Accueil</a><a href="flotte.html">La flotte</a><a href="aeroports.html" aria-current="page">Aéroports</a><a href="index.html#etapes">Comment ça marche</a></nav>
+</div></header>
+<main>
+
+<nav class="fil"><div class="wrap"><a href="index.html">Accueil</a> / Aéroports</div></nav>
+<section class="sec"><div class="wrap">
+  <h1>Couverture aéroportuaire</h1>
+  <p class="lede">98 aéroports,
+  82 villes,
+  50 pays. La distance indiquée est celle qui
+  sépare l'aéroport du centre-ville.</p>
+  <h2 style="margin-top:32px;font-size:21px">Europe <span class="note">(32)</span></h2><table class="specs"><tr><th style="width:80px;color:var(--ac)">LHR</th><td>Heathrow</td><td>Londres</td><td class="note">Royaume-Uni</td><td class="note">24 km</td></tr><tr><th style="width:80px;color:var(--ac)">LGW</th><td>Gatwick</td><td>Londres</td><td class="note">Royaume-Uni</td><td class="note">45 km</td></tr><tr><th style="width:80px;color:var(--ac)">LCY</th><td>London City</td><td>Londres</td><td class="note">Royaume-Uni</td><td class="note">11 km</td></tr><tr><th style="width:80px;color:var(--ac)">CDG</th><td>Charles-de-Gaulle</td><td>Paris</td><td class="note">France</td><td class="note">27 km</td></tr><tr><th style="width:80px;color:var(--ac)">ORY</th><td>Orly</td><td>Paris</td><td class="note">France</td><td class="note">18 km</td></tr><tr><th style="width:80px;color:var(--ac)">LBG</th><td>Le Bourget</td><td>Paris</td><td class="note">France</td><td class="note">14 km</td></tr><tr><th style="width:80px;color:var(--ac)">NCE</th><td>Côte d’Azur</td><td>Nice</td><td class="note">France</td><td class="note">7 km</td></tr><tr><th style="width:80px;color:var(--ac)">AMS</th><td>Schiphol</td><td>Amsterdam</td><td class="note">Pays-Bas</td><td class="note">17 km</td></tr><tr><th style="width:80px;color:var(--ac)">BRU</th><td>Zaventem</td><td>Bruxelles</td><td class="note">Belgique</td><td class="note">12 km</td></tr><tr><th style="width:80px;color:var(--ac)">FRA</th><td>Francfort</td><td>Francfort</td><td class="note">Allemagne</td><td class="note">13 km</td></tr><tr><th style="width:80px;color:var(--ac)">MUC</th><td>Franz-Josef-Strauss</td><td>Munich</td><td class="note">Allemagne</td><td class="note">35 km</td></tr><tr><th style="width:80px;color:var(--ac)">BER</th><td>Brandebourg</td><td>Berlin</td><td class="note">Allemagne</td><td class="note">24 km</td></tr><tr><th style="width:80px;color:var(--ac)">DUS</th><td>Düsseldorf</td><td>Düsseldorf</td><td class="note">Allemagne</td><td class="note">8 km</td></tr><tr><th style="width:80px;color:var(--ac)">ZRH</th><td>Zurich</td><td>Zurich</td><td class="note">Suisse</td><td class="note">12 km</td></tr><tr><th style="width:80px;color:var(--ac)">GVA</th><td>Genève</td><td>Genève</td><td class="note">Suisse</td><td class="note">5 km</td></tr><tr><th style="width:80px;color:var(--ac)">BSL</th><td>EuroAirport</td><td>Bâle</td><td class="note">Suisse</td><td class="note">8 km</td></tr><tr><th style="width:80px;color:var(--ac)">VIE</th><td>Schwechat</td><td>Vienne</td><td class="note">Autriche</td><td class="note">18 km</td></tr><tr><th style="width:80px;color:var(--ac)">SZG</th><td>W.-A.-Mozart</td><td>Salzbourg</td><td class="note">Autriche</td><td class="note">4 km</td></tr><tr><th style="width:80px;color:var(--ac)">MXP</th><td>Malpensa</td><td>Milan</td><td class="note">Italie</td><td class="note">49 km</td></tr><tr><th style="width:80px;color:var(--ac)">LIN</th><td>Linate</td><td>Milan</td><td class="note">Italie</td><td class="note">8 km</td></tr><tr><th style="width:80px;color:var(--ac)">FCO</th><td>Fiumicino</td><td>Rome</td><td class="note">Italie</td><td class="note">32 km</td></tr><tr><th style="width:80px;color:var(--ac)">MAD</th><td>Barajas</td><td>Madrid</td><td class="note">Espagne</td><td class="note">15 km</td></tr><tr><th style="width:80px;color:var(--ac)">BCN</th><td>El Prat</td><td>Barcelone</td><td class="note">Espagne</td><td class="note">15 km</td></tr><tr><th style="width:80px;color:var(--ac)">PMI</th><td>Son Sant Joan</td><td>Palma</td><td class="note">Espagne</td><td class="note">8 km</td></tr><tr><th style="width:80px;color:var(--ac)">LIS</th><td>Humberto-Delgado</td><td>Lisbonne</td><td class="note">Portugal</td><td class="note">8 km</td></tr><tr><th style="width:80px;color:var(--ac)">DUB</th><td>Dublin</td><td>Dublin</td><td class="note">Irlande</td><td class="note">11 km</td></tr><tr><th style="width:80px;color:var(--ac)">CPH</th><td>Kastrup</td><td>Copenhague</td><td class="note">Danemark</td><td class="note">9 km</td></tr><tr><th style="width:80px;color:var(--ac)">ARN</th><td>Arlanda</td><td>Stockholm</td><td class="note">Suède</td><td class="note">40 km</td></tr><tr><th style="width:80px;color:var(--ac)">OSL</th><td>Gardermoen</td><td>Oslo</td><td class="note">Norvège</td><td class="note">47 km</td></tr><tr><th style="width:80px;color:var(--ac)">ATH</th><td>Elefthérios-Venizélos</td><td>Athènes</td><td class="note">Grèce</td><td class="note">33 km</td></tr><tr><th style="width:80px;color:var(--ac)">PRG</th><td>Václav-Havel</td><td>Prague</td><td class="note">Tchéquie</td><td class="note">17 km</td></tr><tr><th style="width:80px;color:var(--ac)">IST</th><td>Istanbul</td><td>Istanbul</td><td class="note">Turquie</td><td class="note">42 km</td></tr></table><h2 style="margin-top:32px;font-size:21px">Amérique du Nord <span class="note">(24)</span></h2><table class="specs"><tr><th style="width:80px;color:var(--ac)">JFK</th><td>John-F.-Kennedy</td><td>New York</td><td class="note">États-Unis</td><td class="note">26 km</td></tr><tr><th style="width:80px;color:var(--ac)">EWR</th><td>Newark Liberty</td><td>New York</td><td class="note">États-Unis</td><td class="note">26 km</td></tr><tr><th style="width:80px;color:var(--ac)">LGA</th><td>LaGuardia</td><td>New York</td><td class="note">États-Unis</td><td class="note">13 km</td></tr><tr><th style="width:80px;color:var(--ac)">TEB</th><td>Teterboro</td><td>New York</td><td class="note">États-Unis</td><td class="note">19 km</td></tr><tr><th style="width:80px;color:var(--ac)">LAX</th><td>Los Angeles</td><td>Los Angeles</td><td class="note">États-Unis</td><td class="note">29 km</td></tr><tr><th style="width:80px;color:var(--ac)">VNY</th><td>Van Nuys</td><td>Los Angeles</td><td class="note">États-Unis</td><td class="note">32 km</td></tr><tr><th style="width:80px;color:var(--ac)">SFO</th><td>San Francisco</td><td>San Francisco</td><td class="note">États-Unis</td><td class="note">21 km</td></tr><tr><th style="width:80px;color:var(--ac)">ORD</th><td>O’Hare</td><td>Chicago</td><td class="note">États-Unis</td><td class="note">27 km</td></tr><tr><th style="width:80px;color:var(--ac)">MIA</th><td>Miami</td><td>Miami</td><td class="note">États-Unis</td><td class="note">13 km</td></tr><tr><th style="width:80px;color:var(--ac)">FLL</th><td>Fort Lauderdale</td><td>Fort Lauderdale</td><td class="note">États-Unis</td><td class="note">6 km</td></tr><tr><th style="width:80px;color:var(--ac)">OPF</th><td>Opa-locka</td><td>Miami</td><td class="note">États-Unis</td><td class="note">18 km</td></tr><tr><th style="width:80px;color:var(--ac)">BOS</th><td>Logan</td><td>Boston</td><td class="note">États-Unis</td><td class="note">6 km</td></tr><tr><th style="width:80px;color:var(--ac)">IAD</th><td>Dulles</td><td>Washington</td><td class="note">États-Unis</td><td class="note">42 km</td></tr><tr><th style="width:80px;color:var(--ac)">DCA</th><td>Reagan National</td><td>Washington</td><td class="note">États-Unis</td><td class="note">6 km</td></tr><tr><th style="width:80px;color:var(--ac)">ATL</th><td>Hartsfield-Jackson</td><td>Atlanta</td><td class="note">États-Unis</td><td class="note">16 km</td></tr><tr><th style="width:80px;color:var(--ac)">DFW</th><td>Dallas-Fort Worth</td><td>Dallas</td><td class="note">États-Unis</td><td class="note">32 km</td></tr><tr><th style="width:80px;color:var(--ac)">IAH</th><td>George-Bush</td><td>Houston</td><td class="note">États-Unis</td><td class="note">37 km</td></tr><tr><th style="width:80px;color:var(--ac)">LAS</th><td>Harry-Reid</td><td>Las Vegas</td><td class="note">États-Unis</td><td class="note">8 km</td></tr><tr><th style="width:80px;color:var(--ac)">YYZ</th><td>Pearson</td><td>Toronto</td><td class="note">Canada</td><td class="note">22 km</td></tr><tr><th style="width:80px;color:var(--ac)">YUL</th><td>Trudeau</td><td>Montréal</td><td class="note">Canada</td><td class="note">20 km</td></tr><tr><th style="width:80px;color:var(--ac)">YHU</th><td>Saint-Hubert</td><td>Montréal</td><td class="note">Canada</td><td class="note">19 km</td></tr><tr><th style="width:80px;color:var(--ac)">YMX</th><td>Mirabel</td><td>Montréal</td><td class="note">Canada</td><td class="note">39 km</td></tr><tr><th style="width:80px;color:var(--ac)">YVR</th><td>Vancouver</td><td>Vancouver</td><td class="note">Canada</td><td class="note">12 km</td></tr><tr><th style="width:80px;color:var(--ac)">MEX</th><td>Benito-Juárez</td><td>Mexico</td><td class="note">Mexique</td><td class="note">13 km</td></tr></table><h2 style="margin-top:32px;font-size:21px">Moyen-Orient <span class="note">(10)</span></h2><table class="specs"><tr><th style="width:80px;color:var(--ac)">DXB</th><td>Dubaï International</td><td>Dubaï</td><td class="note">Émirats arabes unis</td><td class="note">5 km</td></tr><tr><th style="width:80px;color:var(--ac)">DWC</th><td>Al-Maktoum</td><td>Dubaï</td><td class="note">Émirats arabes unis</td><td class="note">37 km</td></tr><tr><th style="width:80px;color:var(--ac)">AUH</th><td>Zayed</td><td>Abou Dabi</td><td class="note">Émirats arabes unis</td><td class="note">32 km</td></tr><tr><th style="width:80px;color:var(--ac)">DOH</th><td>Hamad</td><td>Doha</td><td class="note">Qatar</td><td class="note">15 km</td></tr><tr><th style="width:80px;color:var(--ac)">RUH</th><td>Roi-Khalid</td><td>Riyad</td><td class="note">Arabie saoudite</td><td class="note">35 km</td></tr><tr><th style="width:80px;color:var(--ac)">JED</th><td>Roi-Abdulaziz</td><td>Djeddah</td><td class="note">Arabie saoudite</td><td class="note">19 km</td></tr><tr><th style="width:80px;color:var(--ac)">KWI</th><td>Koweït</td><td>Koweït</td><td class="note">Koweït</td><td class="note">16 km</td></tr><tr><th style="width:80px;color:var(--ac)">MCT</th><td>Mascate</td><td>Mascate</td><td class="note">Oman</td><td class="note">20 km</td></tr><tr><th style="width:80px;color:var(--ac)">TLV</th><td>Ben-Gourion</td><td>Tel-Aviv</td><td class="note">Israël</td><td class="note">20 km</td></tr><tr><th style="width:80px;color:var(--ac)">BEY</th><td>Rafic-Hariri</td><td>Beyrouth</td><td class="note">Liban</td><td class="note">9 km</td></tr></table><h2 style="margin-top:32px;font-size:21px">Asie <span class="note">(14)</span></h2><table class="specs"><tr><th style="width:80px;color:var(--ac)">HND</th><td>Haneda</td><td>Tokyo</td><td class="note">Japon</td><td class="note">18 km</td></tr><tr><th style="width:80px;color:var(--ac)">NRT</th><td>Narita</td><td>Tokyo</td><td class="note">Japon</td><td class="note">62 km</td></tr><tr><th style="width:80px;color:var(--ac)">KIX</th><td>Kansai</td><td>Osaka</td><td class="note">Japon</td><td class="note">46 km</td></tr><tr><th style="width:80px;color:var(--ac)">ICN</th><td>Incheon</td><td>Séoul</td><td class="note">Corée du Sud</td><td class="note">48 km</td></tr><tr><th style="width:80px;color:var(--ac)">PEK</th><td>Pékin-Capitale</td><td>Pékin</td><td class="note">Chine</td><td class="note">26 km</td></tr><tr><th style="width:80px;color:var(--ac)">PKX</th><td>Daxing</td><td>Pékin</td><td class="note">Chine</td><td class="note">46 km</td></tr><tr><th style="width:80px;color:var(--ac)">PVG</th><td>Pudong</td><td>Shanghai</td><td class="note">Chine</td><td class="note">32 km</td></tr><tr><th style="width:80px;color:var(--ac)">HKG</th><td>Hong Kong</td><td>Hong Kong</td><td class="note">Hong Kong</td><td class="note">34 km</td></tr><tr><th style="width:80px;color:var(--ac)">TPE</th><td>Taoyuan</td><td>Taipei</td><td class="note">Taïwan</td><td class="note">40 km</td></tr><tr><th style="width:80px;color:var(--ac)">SIN</th><td>Changi</td><td>Singapour</td><td class="note">Singapour</td><td class="note">20 km</td></tr><tr><th style="width:80px;color:var(--ac)">BKK</th><td>Suvarnabhumi</td><td>Bangkok</td><td class="note">Thaïlande</td><td class="note">30 km</td></tr><tr><th style="width:80px;color:var(--ac)">KUL</th><td>Kuala Lumpur</td><td>Kuala Lumpur</td><td class="note">Malaisie</td><td class="note">45 km</td></tr><tr><th style="width:80px;color:var(--ac)">DEL</th><td>Indira-Gandhi</td><td>New Delhi</td><td class="note">Inde</td><td class="note">16 km</td></tr><tr><th style="width:80px;color:var(--ac)">BOM</th><td>Chhatrapati-Shivaji</td><td>Mumbai</td><td class="note">Inde</td><td class="note">8 km</td></tr></table><h2 style="margin-top:32px;font-size:21px">Afrique <span class="note">(8)</span></h2><table class="specs"><tr><th style="width:80px;color:var(--ac)">CAI</th><td>Le Caire</td><td>Le Caire</td><td class="note">Égypte</td><td class="note">22 km</td></tr><tr><th style="width:80px;color:var(--ac)">CMN</th><td>Mohammed-V</td><td>Casablanca</td><td class="note">Maroc</td><td class="note">30 km</td></tr><tr><th style="width:80px;color:var(--ac)">RAK</th><td>Ménara</td><td>Marrakech</td><td class="note">Maroc</td><td class="note">5 km</td></tr><tr><th style="width:80px;color:var(--ac)">ALG</th><td>Houari-Boumédiène</td><td>Alger</td><td class="note">Algérie</td><td class="note">17 km</td></tr><tr><th style="width:80px;color:var(--ac)">TUN</th><td>Carthage</td><td>Tunis</td><td class="note">Tunisie</td><td class="note">8 km</td></tr><tr><th style="width:80px;color:var(--ac)">JNB</th><td>O.-R.-Tambo</td><td>Johannesburg</td><td class="note">Afrique du Sud</td><td class="note">25 km</td></tr><tr><th style="width:80px;color:var(--ac)">CPT</th><td>Le Cap</td><td>Le Cap</td><td class="note">Afrique du Sud</td><td class="note">20 km</td></tr><tr><th style="width:80px;color:var(--ac)">NBO</th><td>Jomo-Kenyatta</td><td>Nairobi</td><td class="note">Kenya</td><td class="note">18 km</td></tr></table><h2 style="margin-top:32px;font-size:21px">Amérique du Sud <span class="note">(7)</span></h2><table class="specs"><tr><th style="width:80px;color:var(--ac)">GRU</th><td>Guarulhos</td><td>São Paulo</td><td class="note">Brésil</td><td class="note">28 km</td></tr><tr><th style="width:80px;color:var(--ac)">GIG</th><td>Galeão</td><td>Rio de Janeiro</td><td class="note">Brésil</td><td class="note">20 km</td></tr><tr><th style="width:80px;color:var(--ac)">EZE</th><td>Ezeiza</td><td>Buenos Aires</td><td class="note">Argentine</td><td class="note">33 km</td></tr><tr><th style="width:80px;color:var(--ac)">SCL</th><td>Arturo-Merino-Benítez</td><td>Santiago</td><td class="note">Chili</td><td class="note">17 km</td></tr><tr><th style="width:80px;color:var(--ac)">BOG</th><td>El Dorado</td><td>Bogotá</td><td class="note">Colombie</td><td class="note">15 km</td></tr><tr><th style="width:80px;color:var(--ac)">LIM</th><td>Jorge-Chávez</td><td>Lima</td><td class="note">Pérou</td><td class="note">11 km</td></tr><tr><th style="width:80px;color:var(--ac)">PTY</th><td>Tocumen</td><td>Panama</td><td class="note">Panama</td><td class="note">24 km</td></tr></table><h2 style="margin-top:32px;font-size:21px">Océanie <span class="note">(3)</span></h2><table class="specs"><tr><th style="width:80px;color:var(--ac)">SYD</th><td>Kingsford-Smith</td><td>Sydney</td><td class="note">Australie</td><td class="note">8 km</td></tr><tr><th style="width:80px;color:var(--ac)">MEL</th><td>Tullamarine</td><td>Melbourne</td><td class="note">Australie</td><td class="note">23 km</td></tr><tr><th style="width:80px;color:var(--ac)">AKL</th><td>Auckland</td><td>Auckland</td><td class="note">Nouvelle-Zélande</td><td class="note">21 km</td></tr></table>
+</div></section>
+
+</main>
+<footer class="pied"><div class="wrap">
+  8JET — transfert aéroport de prestige et transport sécurisé. Démonstration, aucune réservation réelle.
+</div></footer>
+</body></html>
